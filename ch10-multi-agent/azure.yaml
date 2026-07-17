@@ -1,0 +1,7 @@
+# azure.yaml — deploy the ./src container as a Foundry hosted agent
+name: support-triage-agent
+services:
+  triage:
+    project: ./src
+    language: python
+    host: azure.ai.agent

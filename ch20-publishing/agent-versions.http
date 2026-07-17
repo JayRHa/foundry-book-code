@@ -1,0 +1,13 @@
+PATCH {{endpoint}}/agents/{{agent_name}}?api-version=v1
+Content-Type: application/merge-patch+json
+
+{
+  "agent_endpoint": {
+    "version_selector": {
+      "version_selection_rules": [
+        { "type": "FixedRatio", "agent_version": "3", "traffic_percentage": 10 },
+        { "type": "FixedRatio", "agent_version": "2", "traffic_percentage": 90 }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+POST https://graph.microsoft.com/beta/identity/conditionalAccess/policies
+Content-type: application/json
+
+{
+    "displayName": "Block all agent identities from accessing resources",
+    "conditions": {
+        "clientApplications": {
+            "includeAgentIdServicePrincipals": [ "All" ],
+            "excludeAgentIdServicePrincipals": [],
+            "agentIdServicePrincipalFilter": null
+        },
+        "applications": {
+            "includeApplications": [ "All" ],
+            "excludeApplications": []
+        }
+    },
+    "grantControls": {
+        "operator": "AND",
+        "builtInControls": [ "block" ]
+    },
+    "state": "enabledForReportingButNotEnforced"
+}

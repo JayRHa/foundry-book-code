@@ -1,0 +1,11 @@
+# Everything the Python listings in this repo import.
+# Pinned to the majors the book was written against (July 2026).
+
+azure-identity>=1.19.0
+azure-ai-projects>=2.0.0       # the 2.x line: agents, conversations, responses
+openai>=1.60.0
+anthropic>=0.40.0              # ch06 — Claude on Foundry
+
+# ch16. The [redteam] extra currently fails to resolve (see red_team.py) — the
+# evaluation half installs fine on its own.
+azure-ai-evaluation>=1.0.0

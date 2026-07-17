@@ -1,0 +1,15 @@
+<policies>
+  <inbound>
+    <!-- 500 tokens per minute per APIM subscription; block oversized prompts early -->
+    <llm-token-limit counter-key="@(context.Subscription.Id)"
+        tokens-per-minute="500"
+        estimate-prompt-tokens="false"
+        remaining-tokens-variable-name="remainingTokens" />
+    <!-- Token counts to Application Insights, sliced per caller for chargeback -->
+    <llm-emit-token-metric namespace="llm-metrics">
+      <dimension name="Client IP" value="@(context.Request.IpAddress)" />
+      <dimension name="API ID" value="@(context.Api.Id)" />
+      <dimension name="User ID" value="@(context.Request.Headers.GetValueOrDefault("x-user-id", "N/A"))" />
+    </llm-emit-token-metric>
+  </inbound>
+</policies>
