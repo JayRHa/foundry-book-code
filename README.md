@@ -1,9 +1,27 @@
-# Microsoft Foundry — the code
+<!-- jr-brand:start -->
+<div align="center">
+  <a href="https://jannikreinhard.com/">
+    <img src="https://raw.githubusercontent.com/JayRHa/.github/main/assets/readme/learning.svg" alt="Jannik Reinhard — AI, Cloud and Endpoint Management" width="100%">
+  </a>
+  <h1>Microsoft Foundry · Book Code</h1>
+  <p><strong>All the code from the book 'Microsoft Foundry' by Jannik Reinhard — every listing as a runnable file, plus extra examples.</strong></p>
+  <p>
+  <a href="https://jannikreinhard.com/"><img src="https://img.shields.io/badge/Website-0A5FC0?style=flat-square&amp;logo=wordpress&amp;logoColor=white" alt="Website"></a>
+  <a href="https://github.com/JayRHa"><img src="https://img.shields.io/badge/GitHub-081427?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub"></a>
+  <a href="https://www.linkedin.com/in/jannik-r/"><img src="https://img.shields.io/badge/LinkedIn-0795FF?style=flat-square&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn"></a>
+  <a href="https://x.com/jannik_reinhard"><img src="https://img.shields.io/badge/X-081427?style=flat-square&amp;logo=x&amp;logoColor=white" alt="X"></a>
+  <a href="https://www.youtube.com/@ModernDevMgmt/featured"><img src="https://img.shields.io/badge/YouTube-0A5FC0?style=flat-square&amp;logo=youtube&amp;logoColor=white" alt="YouTube"></a>
+</p>
+  <p><sub>Book · Sample · Pattern · Python · Practical by design</sub></p>
+</div>
+<!-- jr-brand:end -->
+
+## About This Repository
 
 Every listing from the book **Microsoft Foundry** by [Jannik Reinhard](https://jannikreinhard.com),
 as a file you can run, plus a handful of extra examples that came out of writing it.
 
-## Start here
+## Start Here
 
 ```bash
 git clone https://github.com/JayRHa/foundry-book-code
@@ -45,7 +63,7 @@ uses an API key — see [Chapter 13](ch13-identity-access) for why.
 | 21 | [Foundry at the Edge](ch21-foundry-local) | Foundry Local |
 | — | [Appendix](appendix) | RBAC table, az cheat sheet, Bicep skeleton |
 
-## Extra examples
+## Extra Examples
 
 Not in the book. Each one answers a question the docs left open, and each was run
 against a real project before it landed here.
@@ -57,7 +75,7 @@ against a real project before it landed here.
 | [`rbac-roles/`](examples/rbac-roles) | What does each Foundry role actually grant? |
 | [`cost-audit/`](examples/cost-audit) | What in this resource group is billing me right now? |
 
-## About the code
+## About the Code
 
 **These are the book's listings, not a rewrite of them.** A listing printed in a book can
 lean on the prose around it: the book explains what `PROJECT_ENDPOINT` is a page earlier,
@@ -83,3 +101,15 @@ of here and into your own project without dragging anything with it.
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+<!-- jr-brand-footer:start -->
+
+---
+
+<div align="center">
+  <p><sub>Built and maintained by <a href="https://jannikreinhard.com/">Jannik Reinhard</a> · Microsoft MVP for Security and AI Platform.</sub></p>
+  <p><a href="https://www.buymeacoffee.com/jannikreinf">Support the open-source work</a></p>
+  <p><strong>Stay healthy, Cheers Jannik</strong></p>
+</div>
+
+<!-- jr-brand-footer:end -->
