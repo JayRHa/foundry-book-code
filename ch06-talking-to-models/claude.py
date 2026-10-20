@@ -1,23 +1,29 @@
-"""Chapter 06 — Calling Claude on Foundry through the native Anthropic Messages API.
+"""Call a Claude deployment in Foundry using Microsoft Entra ID.
 
-From the book "Microsoft Foundry" by Jannik Reinhard.
-https://github.com/JayRHa/foundry-book-code
+Set FOUNDRY_ANTHROPIC_ENDPOINT to https://<resource>.services.ai.azure.com/anthropic
+and FOUNDRY_CLAUDE_DEPLOYMENT to an existing Claude deployment.
 """
-
-# claude.py — native Anthropic Messages API on Foundry
 import os
-from anthropic import Anthropic
+from anthropic import AnthropicFoundry
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
-claude = Anthropic(
-    base_url="https://my-foundry-resource.services.ai.azure.com/anthropic",
-    api_key=os.environ["FOUNDRY_API_KEY"],
-)
+def main():
+    token_provider = get_bearer_token_provider(
+        DefaultAzureCredential(), "https://ai.azure.com/.default"
+    )
+    with AnthropicFoundry(
+        base_url=os.environ["FOUNDRY_ANTHROPIC_ENDPOINT"],
+        azure_ad_token_provider=token_provider,
+    ) as client:
+        message = client.messages.create(
+            model=os.environ["FOUNDRY_CLAUDE_DEPLOYMENT"],
+            max_tokens=1024,
+            messages=[{"role": "user", "content":
+                       "Compare Intune compliance policies and configuration profiles."}],
+        )
+        for block in message.content:
+            if block.type == "text":
+                print(block.text)
 
-message = claude.messages.create(
-    model="claude-sonnet-5",   # must be deployed on the resource first
-    max_tokens=1024,           # required by the Messages API
-    messages=[
-        {"role": "user", "content": "Compare Intune compliance policies and configuration profiles in three sentences."}
-    ],
-)
-print(message.content[0].text)
+if __name__ == "__main__":
+    main()
